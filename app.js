@@ -53,7 +53,7 @@ io.on('connection', socket => {
     socket.on('joinLobby', lobbyId => {
         lobby[lobbyId].loggedUsers += 1;
         lobby[lobbyId].battle[socket.id] = 0;
-        io.emit('document', lobby);
+        io.emit('document', lobby[lobbyId].battle);
     });
 
     socket.on('getBattle', lobbyId => {
